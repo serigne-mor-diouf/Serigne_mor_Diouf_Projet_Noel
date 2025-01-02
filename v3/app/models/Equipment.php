@@ -1,0 +1,1 @@
+mkdir -p v3/app/config v3/app/controllers v3/app/models v3/app/views/animal v3/app/views/equipment v3/public 
