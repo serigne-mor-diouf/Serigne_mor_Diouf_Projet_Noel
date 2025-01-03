@@ -1,0 +1,37 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}Modifier l'Équipement{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Modifier l'Équipement</h2>
+    </div>
+    <div class="card-body">
+        <form action="/equipment/update/{{ equipment.id }}" method="POST">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" value="{{ equipment.nom }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="etat" class="form-label">État</label>
+                <select class="form-select" id="etat" name="etat" required>
+                    <option value="Neuf" {% if equipment.etat == 'Neuf' %}selected{% endif %}>Neuf</option>
+                    <option value="Bon" {% if equipment.etat == 'Bon' %}selected{% endif %}>Bon</option>
+                    <option value="Moyen" {% if equipment.etat == 'Moyen' %}selected{% endif %}>Moyen</option>
+                    <option value="Mauvais" {% if equipment.etat == 'Mauvais' %}selected{% endif %}>Mauvais</option>
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="disponibilite" name="disponibilite" 
+                       {% if equipment.disponibilite %}checked{% endif %}>
+                <label class="form-check-label" for="disponibilite">Disponible</label>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/equipment" class="btn btn-secondary">Retour</a>
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 

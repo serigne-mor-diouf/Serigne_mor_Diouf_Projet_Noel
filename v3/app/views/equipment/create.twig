@@ -1,0 +1,36 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}Nouvel Équipement{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Nouvel Équipement</h2>
+    </div>
+    <div class="card-body">
+        <form action="/equipment/store" method="POST">
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+            <div class="mb-3">
+                <label for="etat" class="form-label">État</label>
+                <select class="form-select" id="etat" name="etat" required>
+                    <option value="Neuf">Neuf</option>
+                    <option value="Bon">Bon</option>
+                    <option value="Moyen">Moyen</option>
+                    <option value="Mauvais">Mauvais</option>
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="disponibilite" name="disponibilite" checked>
+                <label class="form-check-label" for="disponibilite">Disponible</label>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/equipment" class="btn btn-secondary">Retour</a>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 
